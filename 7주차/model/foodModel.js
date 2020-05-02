@@ -38,16 +38,18 @@ class Food {
         });
     }
 
-    updateFood(foodId, done) {
+    updatefood(foodId, food, kind, explanation) {
         return new Promise((resolve, reject) => {
-            for (var food of this.foods ) {
-                if ( food.id == foodId ) {
-                    food.done = done;
-                    resolve(food);
+            let id = Number(foodId);
+            let newFood = {id, food, kind, explanation};
+            for (var food1 of this.foods ) {
+                if ( food1.id == id ) {
+                    this.foods.splice(id, 1, newFood); // 
+                    resolve(newFood);
+                    console.log(newFood);
                     return;
                 }
             }
-            reject({msg:'Can not update food', code:404});
         });
     }
 
