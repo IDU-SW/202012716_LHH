@@ -5,9 +5,7 @@
 </head>
 <body>
     <h1>(음식목록)</h1>
-    <p>
-        <input type="button" value="추가" style="width:80" onclick="location.href='/food/add'">
-    </p>
+
     <% foods.forEach(function(item) { %>
     <h3><a href='/foods/<%= item.id %>'>번호 : <%= item.id %></a></h3>
     
@@ -15,5 +13,9 @@
         분류 : <%= item.kind %>  <br>
     
     <% }) %>
+
+    <p>
+    <input type="button" value="추가" style="width:80" onclick="location.href='/food/add'">
+    </p>
 </body>
 </html>
