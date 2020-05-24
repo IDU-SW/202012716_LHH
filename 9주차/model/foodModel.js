@@ -101,7 +101,7 @@ class Food {
         }
     }
 
-    updateFood = async(foodId, title, publisher, year) => {
+    updateFood = async(foodId, food, kind, explanation) => {
       
 
         try {
