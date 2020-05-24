@@ -9,7 +9,7 @@ MongoClient.connect(url, { useUnifiedTopology: true }, function (err, database) 
         console.error('MongoDB 연결 실패', err);
         return;
     }
-    // mongodb 버전 3.0이상을 사용할 때는, connection을 할 때에 database명을 명시해야함
+    // connection을 할 때에 database명을 명시해야함
     db = database.db('example');
 });
 
@@ -25,7 +25,7 @@ Food.getFoodDetail = async (foodId) => {
     return await db.collection('food').findOne({ _id: new ObjectID(foodId) });
 }
 
-// Add (노래 추가)
+// Add
 Food.addFood = async (food, kind, explanation) => {
     const data = { food, kind, explanation };
     try {
@@ -36,7 +36,7 @@ Food.addFood = async (food, kind, explanation) => {
     }
 }
 
-// Add : 실제 입력된 값(노래 추가폼) db에 추가
+// Add 
 async function dataOneAdd(food) {
     try {
         let foodData = await db.collection('food').insertOne({
@@ -52,7 +52,7 @@ async function dataOneAdd(food) {
     }
 }
 
-// Delete (노래 삭제)
+// Delete
 Food.deleteFood = async (foodId) => {
     try {
         let result = await db.collection('food').deleteOne({ _id: new ObjectID(foodId) });
@@ -62,7 +62,7 @@ Food.deleteFood = async (foodId) => {
     }
 }
 
-// Update (노래 수정)
+// Update
 Food.updateFood = async (foodId, food, kind, explanation) => {
     try {
         let ret = await db.collection('food').updateOne({_id: new ObjectID(foodId)}, {$set : {food: food, kind: kind, explanation: explanation}});
