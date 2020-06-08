@@ -1,0 +1,18 @@
+<html>
+<head>
+   <meta charset="UTF-8" />
+    <title>EJS foods</title>
+</head>
+<body>
+    <h1>로그인</h1>
+    <form action= "/foods/login" method="POST" >
+
+    <input type="text" name='id' id="userId" placeholder="User ID">
+    <input type="password" name='pw' id="userPw" placeholder="Password">
+    <p>
+    <input type="button" onclick="login()" value="Login"> <input type="button" value="돌아가기" onclick="history.back(-1)">
+    </p>
+
+    </form>
+</body>
+</html>
